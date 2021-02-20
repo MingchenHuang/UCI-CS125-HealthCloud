@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">198657906266-u18inugnrub5jvtpkdphambt2fmo2k5r.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">198657906266</string>
+    <string name="google_api_key" translatable="false">AIzaSyDOuEcVtpMJjlg4dcSB48ECuOCGMaKXAfM</string>
+    <string name="google_app_id" translatable="false">1:198657906266:android:31ffc49426e0f0cc476a63</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDOuEcVtpMJjlg4dcSB48ECuOCGMaKXAfM</string>
+    <string name="google_storage_bucket" translatable="false">healthcloud-1156d.appspot.com</string>
+    <string name="project_id" translatable="false">healthcloud-1156d</string>
+</resources>
