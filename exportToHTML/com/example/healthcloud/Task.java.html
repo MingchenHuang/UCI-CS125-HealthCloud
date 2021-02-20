@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>Task.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Task.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.healthcloud</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">com.google.android.gms.common.internal.safeparcel.SafeParcelable</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">Task {</span>
+    <span class="s0">private </span><span class="s1">String title</span><span class="s0">, </span><span class="s1">type</span><span class="s0">, </span><span class="s1">date</span><span class="s0">;</span>
+    <span class="s0">private int </span><span class="s1">intensity</span><span class="s0">, </span><span class="s1">starthour</span><span class="s0">, </span><span class="s1">startminute</span><span class="s0">, </span><span class="s1">endhour</span><span class="s0">, </span><span class="s1">endminute</span><span class="s0">, </span><span class="s1">ordertime</span><span class="s0">,</span><span class="s1">isrecommend</span><span class="s0">;</span>
+
+    <span class="s0">public </span><span class="s1">Task(){</span>
+        <span class="s2">// Default constructor required for calls to DataSnapshot.getValue(Task.class)</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">Task(String title</span><span class="s0">, </span><span class="s1">String type</span><span class="s0">, </span><span class="s1">String date</span><span class="s0">, int </span><span class="s1">intensity</span><span class="s0">, int </span><span class="s1">starthour</span><span class="s0">, int </span><span class="s1">startminute</span><span class="s0">, int </span><span class="s1">endhour</span><span class="s0">, int </span><span class="s1">endminute</span><span class="s0">, int </span><span class="s1">ordertime</span><span class="s0">, int </span><span class="s1">isrecommend) {</span>
+        <span class="s0">this</span><span class="s1">.title = title</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.type = type</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.date = date</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.intensity = intensity</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.starthour = starthour</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.startminute = startminute</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.endhour = endhour</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.endminute = endminute</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.ordertime = ordertime</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.isrecommend = isrecommend</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">String getTitle() {</span>
+        <span class="s0">return </span><span class="s1">title</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setTitle(String title) {</span>
+        <span class="s0">this</span><span class="s1">.title = title</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">String getType() {</span>
+        <span class="s0">return </span><span class="s1">type</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setType(String type) {</span>
+        <span class="s0">this</span><span class="s1">.type = type</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">String getDate() {</span>
+        <span class="s0">return </span><span class="s1">date</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setDate(String date) {</span>
+        <span class="s0">this</span><span class="s1">.date = date</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">getIntensity() {</span>
+        <span class="s0">return </span><span class="s1">intensity</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setIntensity(</span><span class="s0">int </span><span class="s1">intensity) {</span>
+        <span class="s0">this</span><span class="s1">.intensity = intensity</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">getStarthour() {</span>
+        <span class="s0">return </span><span class="s1">starthour</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setStarthour(</span><span class="s0">int </span><span class="s1">starthour) {</span>
+        <span class="s0">this</span><span class="s1">.starthour = starthour</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">getStartminute() {</span>
+        <span class="s0">return </span><span class="s1">startminute</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setStartminute(</span><span class="s0">int </span><span class="s1">startminute) {</span>
+        <span class="s0">this</span><span class="s1">.startminute = startminute</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">getEndhour() {</span>
+        <span class="s0">return </span><span class="s1">endhour</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setEndhour(</span><span class="s0">int </span><span class="s1">endhour) {</span>
+        <span class="s0">this</span><span class="s1">.endhour = endhour</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">getEndminute() {</span>
+        <span class="s0">return </span><span class="s1">endminute</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setEndminute(</span><span class="s0">int </span><span class="s1">endminute) {</span>
+        <span class="s0">this</span><span class="s1">.endminute = endminute</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">getOrdertime() {</span>
+        <span class="s0">return </span><span class="s1">ordertime</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setOrdertime(</span><span class="s0">int </span><span class="s1">ordertime) {</span>
+        <span class="s0">this</span><span class="s1">.ordertime = ordertime</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">getIsrecommend() {</span>
+        <span class="s0">return </span><span class="s1">isrecommend</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setIsrecommend(</span><span class="s0">int </span><span class="s1">isrecommend) {</span>
+        <span class="s0">this</span><span class="s1">.isrecommend = isrecommend</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">String gettimeperiod(){</span>
+        <span class="s1">String timeperiod = String.valueOf(</span><span class="s0">this</span><span class="s1">.starthour)+</span><span class="s3">&quot;:&quot;</span><span class="s1">+String.valueOf(</span><span class="s0">this</span><span class="s1">.startminute)+</span><span class="s3">&quot; - &quot;</span><span class="s1">+String.valueOf(</span><span class="s0">this</span><span class="s1">.endhour)+</span><span class="s3">&quot;:&quot;</span><span class="s1">+String.valueOf(</span><span class="s0">this</span><span class="s1">.endminute)</span><span class="s0">;</span>
+        <span class="s0">return </span><span class="s1">timeperiod</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">String toString() {</span>
+        <span class="s0">return </span><span class="s3">&quot;Task{&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;title='&quot; </span><span class="s1">+ title + </span><span class="s3">'</span><span class="s0">\'</span><span class="s3">' </span><span class="s1">+</span>
+                <span class="s3">&quot;, type='&quot; </span><span class="s1">+ type + </span><span class="s3">'</span><span class="s0">\'</span><span class="s3">' </span><span class="s1">+</span>
+                <span class="s3">&quot;, date='&quot; </span><span class="s1">+ date + </span><span class="s3">'</span><span class="s0">\'</span><span class="s3">' </span><span class="s1">+</span>
+                <span class="s3">&quot;, intensity=&quot; </span><span class="s1">+ intensity +</span>
+                <span class="s3">&quot;, starthour=&quot; </span><span class="s1">+ starthour +</span>
+                <span class="s3">&quot;, startminute=&quot; </span><span class="s1">+ startminute +</span>
+                <span class="s3">&quot;, endhour=&quot; </span><span class="s1">+ endhour +</span>
+                <span class="s3">&quot;, endminute=&quot; </span><span class="s1">+ endminute +</span>
+                <span class="s3">&quot;, ordertime=&quot; </span><span class="s1">+ ordertime +</span>
+                <span class="s3">&quot;, isrecommend=&quot; </span><span class="s1">+ isrecommend +</span>
+                <span class="s3">'}'</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Recom.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Recom.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.healthcloud</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.content.Intent</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.TextView</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.Vector</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">Recom </span><span class="s0">extends </span><span class="s1">AppCompatActivity {</span>
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">setContentView(R.layout.activity_recom)</span><span class="s0">;</span>
+
+        <span class="s1">TextView cases = findViewById(R.id.txt_case)</span><span class="s0">;</span>
+        <span class="s2">//cases.setText(&quot;hi world!&quot;);</span>
+
+
+        <span class="s1">Bundle bundle = </span><span class="s0">this</span><span class="s1">.getIntent().getExtras()</span><span class="s0">;</span>
+        <span class="s0">double </span><span class="s1">BMR = bundle.getDouble(</span><span class="s3">&quot;BMR&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">weight = bundle.getInt(</span><span class="s3">&quot;weight&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s2">//Intent intent = getIntent();</span>
+        <span class="s2">//System.out.println(&quot;hello&quot;);</span>
+<span class="s2">//        double BMR = Double.parseDouble( intent.getStringExtra(&quot;BMR&quot;) );</span>
+<span class="s2">//        int weight = Integer.parseInt( intent.getStringExtra(&quot;weight&quot;));</span>
+
+
+        <span class="s1">Recommandation recom = </span><span class="s0">new </span><span class="s1">Recommandation(weight</span><span class="s0">, </span><span class="s1">(</span><span class="s0">int</span><span class="s1">) BMR)</span><span class="s0">;</span>
+        <span class="s1">Vector&lt;String&gt; options = recom.get_options_set()</span><span class="s0">;</span>
+        <span class="s1">String content = </span><span class="s3">&quot;&quot;</span><span class="s0">;</span>
+        <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; options.size()</span><span class="s0">; </span><span class="s1">i++)</span>
+        <span class="s1">{</span>
+            <span class="s0">if </span><span class="s1">(i == </span><span class="s4">0</span><span class="s1">)</span>
+            <span class="s1">{</span>
+                <span class="s1">content = options.get(i)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s0">else</span>
+            <span class="s1">{</span>
+                <span class="s1">content += </span><span class="s3">&quot;       &quot; </span><span class="s1">+ options.get(i)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s1">cases.setText(content)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;</span><span class="s0">\n\n\n </span><span class="s3">output:</span><span class="s0">\n\n</span><span class="s3">&quot;</span><span class="s1">+options)</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

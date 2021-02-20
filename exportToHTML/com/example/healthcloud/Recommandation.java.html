@@ -1,0 +1,259 @@
+<html>
+<head>
+<title>Recommandation.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #808080;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Recommandation.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.healthcloud</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.*</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">Recommandation {</span>
+
+    <span class="s0">public static </span><span class="s1">Vector&lt;Vector&lt;Integer&gt;&gt; result </span><span class="s0">;</span>
+    <span class="s0">public static </span><span class="s1">Vector&lt;Vector&lt;Integer&gt;&gt; qualified</span><span class="s0">;</span>
+    <span class="s0">public static </span><span class="s1">HashMap&lt;Integer</span><span class="s0">, </span><span class="s1">String&gt; mapping</span><span class="s0">;</span>
+    <span class="s0">public static </span><span class="s1">Vector&lt;String&gt; options_set</span><span class="s0">;</span>
+    <span class="s0">public static int </span><span class="s1">weight_value</span><span class="s0">;</span>
+    <span class="s0">public static int </span><span class="s1">sum_value</span><span class="s0">;</span>
+
+    <span class="s0">public </span><span class="s1">Recommandation(</span><span class="s0">int </span><span class="s1">Weight</span><span class="s0">, int </span><span class="s1">Sum) {</span>
+        <span class="s1">result = </span><span class="s0">new </span><span class="s1">Vector&lt;&gt;()</span><span class="s0">;</span>
+        <span class="s1">qualified = </span><span class="s0">new </span><span class="s1">Vector&lt;&gt;()</span><span class="s0">;</span>
+        <span class="s1">mapping = </span><span class="s0">new </span><span class="s1">HashMap&lt;&gt;(</span><span class="s2">11</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">options_set = </span><span class="s0">new </span><span class="s1">Vector&lt;&gt;()</span><span class="s0">;</span>
+        <span class="s1">weight_value = Weight</span><span class="s0">;</span>
+        <span class="s1">sum_value = Sum</span><span class="s0">;</span>
+        <span class="s1">first()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">Vector&lt;String&gt; get_options_set()</span>
+    <span class="s1">{</span>
+        <span class="s0">return </span><span class="s1">options_set</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+
+    <span class="s3">//start function</span>
+    <span class="s0">public void </span><span class="s1">first() {</span>
+        <span class="s3">// write your code here</span>
+        <span class="s1">result.clear()</span><span class="s0">;</span>
+        <span class="s1">qualified.clear()</span><span class="s0">;</span>
+
+        <span class="s3">//int sum = 1700;</span>
+        <span class="s3">//int sum = sum_value;</span>
+        <span class="s3">//int[] data = new int[] {246, 267, 352, 359, 492, 490, 773, 562, 494, 422, 492};</span>
+        <span class="s3">//int weight = 65;</span>
+        <span class="s3">//int weight = weight_value;</span>
+
+
+        <span class="s0">int</span><span class="s1">[] data = initialization(weight_value)</span><span class="s0">;</span>
+        <span class="s3">//get all combination</span>
+        <span class="s1">get_combination(data)</span><span class="s0">;</span>
+        <span class="s3">//System.out.println(&quot;Size of result vector: &quot; + result.size() + &quot;\n\n\n&quot;);</span>
+
+        <span class="s3">//get at least 4 different options or cases</span>
+        <span class="s1">check_qualified_numb(sum_value)</span><span class="s0">;</span>
+
+
+        <span class="s3">//TODO: Return the name of exercises from this main function when moving to android studio....</span>
+        <span class="s3">//get string options</span>
+        <span class="s1">form_new_options()</span><span class="s0">;</span>
+
+        <span class="s3">// options_set is the final cases.</span>
+
+
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">form_new_options() {</span>
+        <span class="s1">options_set.clear()</span><span class="s0">;</span>
+        <span class="s1">String exercise = </span><span class="s4">&quot;&quot;</span><span class="s0">;</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; qualified.size()</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s1">exercise = </span><span class="s4">&quot;&quot;</span><span class="s0">;</span>
+            <span class="s3">//System.out.println(&quot;Mapping: \n&quot; + mapping);</span>
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">j &lt; qualified.get(i).size()</span><span class="s0">; </span><span class="s1">j++) {</span>
+                <span class="s0">if </span><span class="s1">(j == </span><span class="s2">0</span><span class="s1">)</span>
+                <span class="s1">{</span>
+                    <span class="s1">exercise =  mapping.get( qualified.get(i).get(j) )</span><span class="s0">;</span>
+                <span class="s1">}</span>
+                <span class="s0">else </span><span class="s1">{</span>
+                    <span class="s1">exercise = exercise + </span><span class="s4">&quot;, &quot; </span><span class="s1">+ mapping.get(qualified.get(i).get(j))</span><span class="s0">;</span>
+                <span class="s1">}</span>
+                <span class="s3">//option.add( mapping.get( qualified.get(i).get(j) ) );</span>
+                <span class="s3">//System.out.println( &quot;loop option: &quot; + qualified.get(i).get(j) +&quot;    &quot; + mapping.get( qualified.get(i).get(j) ) + &quot;\n\n\n&quot;);</span>
+                <span class="s3">//break;</span>
+            <span class="s1">}</span>
+            <span class="s1">options_set.add(exercise)</span><span class="s0">;</span>
+
+            <span class="s3">// break;</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+
+    <span class="s0">public int</span><span class="s1">[] initialization(</span><span class="s0">int </span><span class="s1">weight) {</span>
+        <span class="s0">int</span><span class="s1">[] small = </span><span class="s0">new int</span><span class="s1">[]{</span><span class="s2">198</span><span class="s0">, </span><span class="s2">215</span><span class="s0">, </span><span class="s2">283</span><span class="s0">, </span><span class="s2">289</span><span class="s0">, </span><span class="s2">393</span><span class="s0">, </span><span class="s2">390</span><span class="s0">, </span><span class="s2">624</span><span class="s0">, </span><span class="s2">454</span><span class="s0">, </span><span class="s2">399</span><span class="s0">, </span><span class="s2">340</span><span class="s0">, </span><span class="s2">397</span><span class="s1">}</span><span class="s0">;</span>
+        <span class="s0">int</span><span class="s1">[] middle = </span><span class="s0">new int</span><span class="s1">[]{</span><span class="s2">246</span><span class="s0">, </span><span class="s2">267</span><span class="s0">, </span><span class="s2">352</span><span class="s0">, </span><span class="s2">359</span><span class="s0">, </span><span class="s2">492</span><span class="s0">, </span><span class="s2">490</span><span class="s0">, </span><span class="s2">773</span><span class="s0">, </span><span class="s2">562</span><span class="s0">, </span><span class="s2">488</span><span class="s0">, </span><span class="s2">422</span><span class="s0">, </span><span class="s2">499</span><span class="s1">}</span><span class="s0">;</span>
+        <span class="s0">int</span><span class="s1">[] large = </span><span class="s0">new int</span><span class="s1">[]{</span><span class="s2">294</span><span class="s0">, </span><span class="s2">319</span><span class="s0">, </span><span class="s2">420</span><span class="s0">, </span><span class="s2">428</span><span class="s0">, </span><span class="s2">587</span><span class="s0">, </span><span class="s2">580</span><span class="s0">, </span><span class="s2">923</span><span class="s0">, </span><span class="s2">671</span><span class="s0">, </span><span class="s2">588</span><span class="s0">, </span><span class="s2">503</span><span class="s0">, </span><span class="s2">589</span><span class="s1">}</span><span class="s0">;</span>
+        <span class="s0">double </span><span class="s1">weight_lb = weight * </span><span class="s2">2.20462 </span><span class="s1">- </span><span class="s2">125</span><span class="s0">;</span>
+        <span class="s1">mapping.clear()</span><span class="s0">;</span>
+        <span class="s0">if </span><span class="s1">(weight_lb &lt;= </span><span class="s2">15</span><span class="s1">) {</span>
+            <span class="s1">mapping.put(</span><span class="s2">198</span><span class="s0">, </span><span class="s4">&quot;Golf&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">215</span><span class="s0">, </span><span class="s4">&quot;Walking&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">283</span><span class="s0">, </span><span class="s4">&quot;Kayaking&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">289</span><span class="s0">, </span><span class="s4">&quot;Softball/Baseball&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">393</span><span class="s0">, </span><span class="s4">&quot;Swimming&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">390</span><span class="s0">, </span><span class="s4">&quot;Tennis&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">624</span><span class="s0">, </span><span class="s4">&quot;Running&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">454</span><span class="s0">, </span><span class="s4">&quot;Bicycle&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">399</span><span class="s0">, </span><span class="s4">&quot;Football&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">340</span><span class="s0">, </span><span class="s4">&quot;Basketball&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">397</span><span class="s0">, </span><span class="s4">&quot;Soccer&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+            <span class="s0">return </span><span class="s1">small</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(weight_lb &lt;= </span><span class="s2">45</span><span class="s1">) {</span>
+            <span class="s1">mapping.put(</span><span class="s2">246</span><span class="s0">, </span><span class="s4">&quot;Golf&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">267</span><span class="s0">, </span><span class="s4">&quot;Walking&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">352</span><span class="s0">, </span><span class="s4">&quot;Kayaking&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">359</span><span class="s0">, </span><span class="s4">&quot;Softball/Baseball&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">492</span><span class="s0">, </span><span class="s4">&quot;Swimming&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">490</span><span class="s0">, </span><span class="s4">&quot;Tennis&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">773</span><span class="s0">, </span><span class="s4">&quot;Running&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">562</span><span class="s0">, </span><span class="s4">&quot;Bicycle&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">488</span><span class="s0">, </span><span class="s4">&quot;Football&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">422</span><span class="s0">, </span><span class="s4">&quot;Basketball&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">499</span><span class="s0">, </span><span class="s4">&quot;Soccer&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+            <span class="s0">return </span><span class="s1">middle</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else  </span><span class="s3">//&gt;= 171</span>
+        <span class="s1">{</span>
+            <span class="s1">mapping.put(</span><span class="s2">294</span><span class="s0">, </span><span class="s4">&quot;Golf&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">319</span><span class="s0">, </span><span class="s4">&quot;Walking&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">420</span><span class="s0">, </span><span class="s4">&quot;Kayaking&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">428</span><span class="s0">, </span><span class="s4">&quot;Softball/Baseball&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">587</span><span class="s0">, </span><span class="s4">&quot;Swimming&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">580</span><span class="s0">, </span><span class="s4">&quot;Tennis&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">923</span><span class="s0">, </span><span class="s4">&quot;Running&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">671</span><span class="s0">, </span><span class="s4">&quot;Bicycle&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">588</span><span class="s0">, </span><span class="s4">&quot;Football&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">503</span><span class="s0">, </span><span class="s4">&quot;Basketball&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">mapping.put(</span><span class="s2">589</span><span class="s0">, </span><span class="s4">&quot;Soccer&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+            <span class="s0">return </span><span class="s1">large</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s3">//make sure the qualified vector has equal and more than 4 different options</span>
+    <span class="s0">public void </span><span class="s1">check_qualified_numb(</span><span class="s0">int </span><span class="s1">sum) {</span>
+        <span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">;</span>
+        <span class="s0">do </span><span class="s1">{</span>
+            <span class="s1">qualified.clear()</span><span class="s0">;</span>
+            <span class="s1">get_qualified(sum</span><span class="s0">, </span><span class="s1">i * </span><span class="s2">1</span><span class="s1">)</span><span class="s0">;</span>
+
+            <span class="s0">if </span><span class="s1">(qualified.size() &gt;= </span><span class="s2">4</span><span class="s1">) {</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s1">i++</span><span class="s0">;</span>
+
+        <span class="s1">} </span><span class="s0">while </span><span class="s1">(</span><span class="s0">true</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s3">//get valid vector sum that within a range</span>
+    <span class="s0">public void </span><span class="s1">get_qualified(</span><span class="s0">int </span><span class="s1">sum</span><span class="s0">, int </span><span class="s1">range) {</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; result.size()</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s0">int </span><span class="s1">total = sum_of_vector(result.get(i))</span><span class="s0">;</span>
+            <span class="s0">if </span><span class="s1">((total &gt; (sum - range)) &amp;&amp; (total &lt; (sum + range))) {</span>
+                <span class="s1">Collections.sort(result.get(i))</span><span class="s0">;</span>
+                <span class="s0">if </span><span class="s1">(!qualified.contains(result.get(i))) {</span>
+                    <span class="s1">qualified.add(result.get(i))</span><span class="s0">;</span>
+                    <span class="s3">//System.out.println(&quot;get_qualified function: &quot; + result.get(i));</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s3">//sum each vector element from result</span>
+    <span class="s0">public int </span><span class="s1">sum_of_vector(Vector&lt;Integer&gt; container) {</span>
+        <span class="s0">int </span><span class="s1">sum = </span><span class="s2">0</span><span class="s0">;</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; container.size()</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s1">sum += container.get(i)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">sum</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+
+    <span class="s0">public void </span><span class="s1">get_combination(</span><span class="s0">int </span><span class="s1">data[]) {</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">1</span><span class="s0">; </span><span class="s1">i &lt; data.length</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s1">printCombination(data</span><span class="s0">, </span><span class="s1">data.length</span><span class="s0">, </span><span class="s1">i)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+
+    <span class="s0">public void </span><span class="s1">combinationUtil(</span><span class="s0">int </span><span class="s1">arr[]</span><span class="s0">, int </span><span class="s1">data[]</span><span class="s0">, int </span><span class="s1">start</span><span class="s0">,</span>
+                                <span class="s0">int </span><span class="s1">end</span><span class="s0">, int </span><span class="s1">index</span><span class="s0">, int </span><span class="s1">r) {</span>
+        <span class="s3">// Current combination is ready to be printed, print it</span>
+        <span class="s0">if </span><span class="s1">(index == r) {</span>
+            <span class="s1">Vector&lt;Integer&gt; container = </span><span class="s0">new </span><span class="s1">Vector&lt;&gt;()</span><span class="s0">;</span>
+
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">j &lt; r</span><span class="s0">; </span><span class="s1">j++)</span>
+                <span class="s1">container.add(data[j])</span><span class="s0">;</span>
+            <span class="s3">//System.out.print(data[j]+&quot; &quot;);</span>
+            <span class="s3">//System.out.println(&quot;&quot;);</span>
+            <span class="s1">result.add(container)</span><span class="s0">;</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+
+        <span class="s3">// replace index with all possible elements. The condition</span>
+        <span class="s3">// &quot;end-i+1 &gt;= r-index&quot; makes sure that including one element</span>
+        <span class="s3">// at index will make a combination with remaining elements</span>
+        <span class="s3">// at remaining positions</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = start</span><span class="s0">; </span><span class="s1">i &lt;= end &amp;&amp; end - i + </span><span class="s2">1 </span><span class="s1">&gt;= r - index</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s1">data[index] = arr[i]</span><span class="s0">;</span>
+            <span class="s1">combinationUtil(arr</span><span class="s0">, </span><span class="s1">data</span><span class="s0">, </span><span class="s1">i + </span><span class="s2">1</span><span class="s0">, </span><span class="s1">end</span><span class="s0">, </span><span class="s1">index + </span><span class="s2">1</span><span class="s0">, </span><span class="s1">r)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s3">// The main function that prints all combinations of size r</span>
+    <span class="s3">// in arr[] of size n. This function mainly uses combinationUtil()</span>
+    <span class="s0">public void </span><span class="s1">printCombination(</span><span class="s0">int </span><span class="s1">arr[]</span><span class="s0">, int </span><span class="s1">n</span><span class="s0">, int </span><span class="s1">r) {</span>
+        <span class="s3">// A temporary array to store all combination one by one</span>
+        <span class="s0">int </span><span class="s1">data[] = </span><span class="s0">new int</span><span class="s1">[r]</span><span class="s0">;</span>
+
+        <span class="s3">// Print all combination using temprary array 'data[]'</span>
+        <span class="s1">combinationUtil(arr</span><span class="s0">, </span><span class="s1">data</span><span class="s0">, </span><span class="s2">0</span><span class="s0">, </span><span class="s1">n - </span><span class="s2">1</span><span class="s0">, </span><span class="s2">0</span><span class="s0">, </span><span class="s1">r)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+
+    <span class="s0">public int</span><span class="s1">[] remove_first_element(</span><span class="s0">int </span><span class="s1">data[]) {</span>
+        <span class="s0">int </span><span class="s1">size = data.length - </span><span class="s2">1</span><span class="s0">;</span>
+        <span class="s0">int</span><span class="s1">[] new_data = </span><span class="s0">new int</span><span class="s1">[size]</span><span class="s0">;</span>
+
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; size</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s1">new_data[i] = data[i + </span><span class="s2">1</span><span class="s1">]</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">new_data</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">min(</span><span class="s0">int </span><span class="s1">data[]) {</span>
+        <span class="s0">int </span><span class="s1">m = data[</span><span class="s2">0</span><span class="s1">]</span><span class="s0">;</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; data.length</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s0">if </span><span class="s1">(data[i] &lt; m) {</span>
+                <span class="s1">m = data[i]</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">m</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

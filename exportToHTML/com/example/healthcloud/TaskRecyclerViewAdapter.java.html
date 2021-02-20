@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>TaskRecyclerViewAdapter.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+TaskRecyclerViewAdapter.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.healthcloud</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.view.LayoutInflater</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.ViewGroup</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.TextView</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">androidx.annotation.NonNull</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">androidx.cardview.widget.CardView</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">androidx.recyclerview.widget.RecyclerView</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">com.google.android.gms.common.internal.safeparcel.SafeParcelable</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Collections</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Comparator</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">TaskRecyclerViewAdapter </span><span class="s0">extends </span><span class="s1">RecyclerView.Adapter&lt;TaskRecyclerViewAdapter.ViewHolder&gt;{</span>
+    <span class="s0">private </span><span class="s1">ArrayList&lt;Task&gt; tasks = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
+
+    <span class="s0">public </span><span class="s1">TaskRecyclerViewAdapter(ArrayList&lt;Task&gt; tasks) {</span>
+        <span class="s0">this</span><span class="s1">.tasks = tasks</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">@NonNull</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">ViewHolder onCreateViewHolder(@NonNull ViewGroup parent</span><span class="s0">, int </span><span class="s1">viewType) {</span>
+        <span class="s1">View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_task_list</span><span class="s0">, </span><span class="s1">parent</span><span class="s0">,false</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">ViewHolder holder = </span><span class="s0">new </span><span class="s1">ViewHolder(view)</span><span class="s0">;</span>
+        <span class="s0">return </span><span class="s1">holder</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onBindViewHolder(@NonNull ViewHolder holder</span><span class="s0">,final int </span><span class="s1">position) {</span>
+        <span class="s1">Collections.sort(tasks</span><span class="s0">, new </span><span class="s1">Comparator&lt;Task&gt;() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public int </span><span class="s1">compare(Task o1</span><span class="s0">, </span><span class="s1">Task o2) {</span>
+
+                <span class="s0">if</span><span class="s1">(o1.getOrdertime()&gt;o2.getOrdertime())</span>
+                    <span class="s0">return </span><span class="s2">1</span><span class="s0">;</span>
+                <span class="s0">return </span><span class="s1">-</span><span class="s2">1</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">holder.tasktitle.setText(tasks.get(position).getTitle())</span><span class="s0">;</span>
+        <span class="s1">holder.tasktype.setText(tasks.get(position).getType())</span><span class="s0">;</span>
+        <span class="s1">holder.tasktimeperiod.setText(tasks.get(position).gettimeperiod())</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public int </span><span class="s1">getItemCount() {</span>
+        <span class="s0">return </span><span class="s1">tasks.size()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public class </span><span class="s1">ViewHolder </span><span class="s0">extends </span><span class="s1">RecyclerView.ViewHolder{</span>
+        <span class="s0">private </span><span class="s1">TextView tasktitle</span><span class="s0">,</span><span class="s1">tasktype</span><span class="s0">,</span><span class="s1">tasktimeperiod</span><span class="s0">;</span>
+        <span class="s0">private </span><span class="s1">CardView parent</span><span class="s0">;</span>
+        <span class="s0">public </span><span class="s1">ViewHolder(@NonNull View itemView) {</span>
+            <span class="s0">super</span><span class="s1">(itemView)</span><span class="s0">;</span>
+            <span class="s1">tasktitle = itemView.findViewById(R.id.taskTitle)</span><span class="s0">;</span>
+            <span class="s1">tasktype = itemView.findViewById(R.id.tasktype)</span><span class="s0">;</span>
+            <span class="s1">tasktimeperiod = itemView.findViewById(R.id.tasktimeperiod)</span><span class="s0">;</span>
+            <span class="s1">parent = itemView.findViewById(R.id.parent)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
