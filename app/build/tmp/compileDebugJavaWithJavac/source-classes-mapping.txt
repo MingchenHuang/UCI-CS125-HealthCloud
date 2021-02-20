@@ -1,0 +1,30 @@
+com/example/healthcloud/TaskRecyclerViewAdapter.java
+ com.example.healthcloud.TaskRecyclerViewAdapter
+ com.example.healthcloud.TaskRecyclerViewAdapter$1
+ com.example.healthcloud.TaskRecyclerViewAdapter$ViewHolder
+com/example/healthcloud/Recommandation.java
+ com.example.healthcloud.Recommandation
+com/example/healthcloud/BuildConfig.java
+ com.example.healthcloud.BuildConfig
+com/example/healthcloud/Task.java
+ com.example.healthcloud.Task
+com/example/healthcloud/Recom.java
+ com.example.healthcloud.Recom
+com/example/healthcloud/Personaldata.java
+ com.example.healthcloud.Personaldata
+com/example/healthcloud/Running.java
+ com.example.healthcloud.Running
+ com.example.healthcloud.Running$1
+com/example/healthcloud/MainActivity.java
+ com.example.healthcloud.MainActivity
+ com.example.healthcloud.MainActivity$1
+ com.example.healthcloud.MainActivity$2
+ com.example.healthcloud.MainActivity$3
+ com.example.healthcloud.MainActivity$4
+ com.example.healthcloud.MainActivity$4$1
+ com.example.healthcloud.MainActivity$5
+com/example/healthcloud/Addtask.java
+ com.example.healthcloud.Addtask
+ com.example.healthcloud.Addtask$1
+ com.example.healthcloud.Addtask$2
+ com.example.healthcloud.Addtask$3
