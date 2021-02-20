@@ -1,0 +1,184 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.healthcloud"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml
+10
+11    <!-- Include required permissions for Google Maps API to run. -->
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8584395d637b6ec6e70bcbc794772af4\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+12-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8584395d637b6ec6e70bcbc794772af4\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8584395d637b6ec6e70bcbc794772af4\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
+13-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8584395d637b6ec6e70bcbc794772af4\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:22-64
+14
+15    <uses-feature
+15-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8584395d637b6ec6e70bcbc794772af4\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+16        android:glEsVersion="0x00020000"
+16-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8584395d637b6ec6e70bcbc794772af4\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+17        android:required="true" />
+17-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8584395d637b6ec6e70bcbc794772af4\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+18
+19    <uses-permission android:name="android.permission.WAKE_LOCK" />
+19-->[com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\093fefaa9b92cc8891649f8a6fb059a9\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:24:5-68
+19-->[com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\093fefaa9b92cc8891649f8a6fb059a9\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:24:22-65
+20    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+20-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:26:5-110
+20-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:26:22-107
+21
+22    <application
+22-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:5:5-23:19
+23        android:allowBackup="true"
+23-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:6:9-35
+24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+24-->[androidx.core:core:1.3.1] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f3d364c4591b4da0386e5d8846d9d728\core-1.3.1\AndroidManifest.xml:24:18-86
+25        android:debuggable="true"
+26        android:icon="@mipmap/ic_launcher"
+26-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:7:9-43
+27        android:label="@string/app_name"
+27-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:8:9-41
+28        android:roundIcon="@mipmap/ic_launcher_round"
+28-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:9:9-54
+29        android:supportsRtl="true"
+29-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:10:9-35
+30        android:testOnly="true"
+31        android:theme="@style/Theme.HealthCloud" >
+31-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:11:9-49
+32        <activity android:name="com.example.healthcloud.Addtask" />
+32-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:12:9-54
+32-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:12:19-42
+33        <activity android:name="com.example.healthcloud.Running" />
+33-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:13:9-45
+33-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:13:19-42
+34        <activity android:name="com.example.healthcloud.Personaldata" />
+34-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:14:9-50
+34-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:14:19-47
+35        <activity android:name="com.example.healthcloud.MainActivity" >
+35-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:15:9-21:20
+35-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:15:19-47
+36            <intent-filter>
+36-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:16:13-20:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:17:17-69
+37-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:17:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:19:17-77
+39-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:19:27-74
+40            </intent-filter>
+41        </activity>
+42        <activity android:name="com.example.healthcloud.Recom" />
+42-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:22:9-52
+42-->C:\Users\hmc10\Desktop\HealthCloud\app\src\main\AndroidManifest.xml:22:19-40
+43        <!-- Needs to be explicitly declared on P+ -->
+44        <uses-library
+44-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8584395d637b6ec6e70bcbc794772af4\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+45            android:name="org.apache.http.legacy"
+45-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8584395d637b6ec6e70bcbc794772af4\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+46            android:required="false" />
+46-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8584395d637b6ec6e70bcbc794772af4\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+47
+48        <service
+48-->[com.google.firebase:firebase-database:19.6.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f820e3cdf5524f5905c0bd0b836c9605\jetified-firebase-database-19.6.0\AndroidManifest.xml:29:9-35:19
+49            android:name="com.google.firebase.components.ComponentDiscoveryService"
+49-->[com.google.firebase:firebase-database:19.6.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f820e3cdf5524f5905c0bd0b836c9605\jetified-firebase-database-19.6.0\AndroidManifest.xml:30:13-84
+50            android:directBootAware="true"
+50-->[com.google.firebase:firebase-common:19.5.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\9b2ec3a49389295e09fe37e42c5e30ad\jetified-firebase-common-19.5.0\AndroidManifest.xml:35:13-43
+51            android:exported="false" >
+51-->[com.google.firebase:firebase-database:19.6.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f820e3cdf5524f5905c0bd0b836c9605\jetified-firebase-database-19.6.0\AndroidManifest.xml:31:13-37
+52            <meta-data
+52-->[com.google.firebase:firebase-database:19.6.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f820e3cdf5524f5905c0bd0b836c9605\jetified-firebase-database-19.6.0\AndroidManifest.xml:32:13-34:85
+53                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+53-->[com.google.firebase:firebase-database:19.6.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f820e3cdf5524f5905c0bd0b836c9605\jetified-firebase-database-19.6.0\AndroidManifest.xml:33:17-109
+54                android:value="com.google.firebase.components.ComponentRegistrar" />
+54-->[com.google.firebase:firebase-database:19.6.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f820e3cdf5524f5905c0bd0b836c9605\jetified-firebase-database-19.6.0\AndroidManifest.xml:34:17-82
+55            <meta-data
+55-->[com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\093fefaa9b92cc8891649f8a6fb059a9\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:30:13-32:85
+56                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+56-->[com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\093fefaa9b92cc8891649f8a6fb059a9\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:31:17-139
+57                android:value="com.google.firebase.components.ComponentRegistrar" />
+57-->[com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\093fefaa9b92cc8891649f8a6fb059a9\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:32:17-82
+58            <meta-data
+58-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\1369485c689ceb8322c0628522befd57\jetified-firebase-installations-16.3.5\AndroidManifest.xml:18:13-20:85
+59                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+59-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\1369485c689ceb8322c0628522befd57\jetified-firebase-installations-16.3.5\AndroidManifest.xml:19:17-127
+60                android:value="com.google.firebase.components.ComponentRegistrar" />
+60-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\1369485c689ceb8322c0628522befd57\jetified-firebase-installations-16.3.5\AndroidManifest.xml:20:17-82
+61            <!--
+62                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+63                clients to use it as well, by defining this registrar in their own core/common library.
+64            -->
+65            <meta-data
+65-->[com.google.firebase:firebase-common:19.5.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\9b2ec3a49389295e09fe37e42c5e30ad\jetified-firebase-common-19.5.0\AndroidManifest.xml:43:13-45:85
+66                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+66-->[com.google.firebase:firebase-common:19.5.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\9b2ec3a49389295e09fe37e42c5e30ad\jetified-firebase-common-19.5.0\AndroidManifest.xml:44:17-121
+67                android:value="com.google.firebase.components.ComponentRegistrar" />
+67-->[com.google.firebase:firebase-common:19.5.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\9b2ec3a49389295e09fe37e42c5e30ad\jetified-firebase-common-19.5.0\AndroidManifest.xml:45:17-82
+68        </service>
+69
+70        <provider
+70-->[com.google.firebase:firebase-common:19.5.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\9b2ec3a49389295e09fe37e42c5e30ad\jetified-firebase-common-19.5.0\AndroidManifest.xml:26:9-31:39
+71            android:name="com.google.firebase.provider.FirebaseInitProvider"
+71-->[com.google.firebase:firebase-common:19.5.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\9b2ec3a49389295e09fe37e42c5e30ad\jetified-firebase-common-19.5.0\AndroidManifest.xml:27:13-77
+72            android:authorities="com.example.healthcloud.firebaseinitprovider"
+72-->[com.google.firebase:firebase-common:19.5.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\9b2ec3a49389295e09fe37e42c5e30ad\jetified-firebase-common-19.5.0\AndroidManifest.xml:28:13-72
+73            android:directBootAware="true"
+73-->[com.google.firebase:firebase-common:19.5.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\9b2ec3a49389295e09fe37e42c5e30ad\jetified-firebase-common-19.5.0\AndroidManifest.xml:29:13-43
+74            android:exported="false"
+74-->[com.google.firebase:firebase-common:19.5.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\9b2ec3a49389295e09fe37e42c5e30ad\jetified-firebase-common-19.5.0\AndroidManifest.xml:30:13-37
+75            android:initOrder="100" />
+75-->[com.google.firebase:firebase-common:19.5.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\9b2ec3a49389295e09fe37e42c5e30ad\jetified-firebase-common-19.5.0\AndroidManifest.xml:31:13-36
+76
+77        <activity
+77-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8de479e3923cdb06e513556595304162\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+78            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+78-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8de479e3923cdb06e513556595304162\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+79            android:exported="false"
+79-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8de479e3923cdb06e513556595304162\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+80            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+80-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\8de479e3923cdb06e513556595304162\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+81
+82        <receiver
+82-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:29:9-33:20
+83            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+83-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:30:13-85
+84            android:enabled="true"
+84-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:31:13-35
+85            android:exported="false" >
+85-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:32:13-37
+86        </receiver>
+87
+88        <service
+88-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:35:9-38:40
+89            android:name="com.google.android.gms.measurement.AppMeasurementService"
+89-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:36:13-84
+90            android:enabled="true"
+90-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:37:13-35
+91            android:exported="false" />
+91-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:38:13-37
+92        <service
+92-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:39:9-43:72
+93            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+93-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:40:13-87
+94            android:enabled="true"
+94-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:41:13-35
+95            android:exported="false"
+95-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:42:13-37
+96            android:permission="android.permission.BIND_JOB_SERVICE" />
+96-->[com.google.android.gms:play-services-measurement:18.0.2] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\f847f86ac99b75bbeea0f1d82e51907a\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:43:13-69
+97
+98        <meta-data
+98-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\830f40744a6b50d3acce285cce8599db\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+99            android:name="com.google.android.gms.version"
+99-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\830f40744a6b50d3acce285cce8599db\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+100            android:value="@integer/google_play_services_version" />
+100-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\hmc10\.gradle\caches\transforms-2\files-2.1\830f40744a6b50d3acce285cce8599db\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+101    </application>
+102
+103</manifest>
