@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/schedule2"
+        android:icon="@drawable/ic_schedule"
+        android:title="@string/schedule"
+        />
+    <item
+        android:id="@+id/personaldata"
+        android:icon="@drawable/ic_bodydata"
+        android:title="@string/personaldata"/>
+    <item
+        android:id="@+id/running"
+        android:icon="@drawable/ic_running"
+        android:title="@string/running"
+        />
+
+
+</menu>

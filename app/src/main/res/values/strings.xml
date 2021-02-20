@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">HealthCloud</string>
+    <string-array name="sex_selection">
+        <item>Man</item>
+        <item>Woman</item>
+    </string-array>
+    <string name="schedule">schedule</string>
+    <string name="personaldata">personal data</string>
+    <string name="running">running</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
